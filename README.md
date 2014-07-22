@@ -9,6 +9,11 @@ Messages consist of a JSON containing all the relevant event data:
 *	ConsumptionCentreId [string] – id of consumption centre
 *	Msg[string] - message
 
+Example of a message:
+```
+{"Name":"Missing data", "Type": 1, "ConsumptionCentreId": "Miren-lamp-0025.0007.0006", "Msg": "Data not received for 2 consecutive expected intervals." }
+```
+
 The followin JS can be used to connect to the WS server:
 
 ```
