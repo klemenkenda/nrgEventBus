@@ -5,7 +5,7 @@ Web application can connect to the WS server at ws://demo.nrg4cast.org:8080.
 
 Messages consist of a JSON containing all the relevant event data:
 *	Name [string] – name of the event
-*	Timestamp[time] - in MySQL format
+*	Timestamp [time] - in MySQL format
 *	Type [num] – 0 – notice, 1 – warning, 2 – alarm
 *	ConsumptionCentreId [string] – id of consumption centre
 *	Msg[string] - message
