@@ -52,3 +52,8 @@ function reconnect() {
 	init();
 }
 ```
+
+client.js can be used for pushing events to the event bus via http requests. Example of ussage:
+```
+http://demo2.nrg4cast.org:1337?event={"Name":"Missing data", "Type": 1, "ConsumptionCentreId": "Miren-lamp-0025.0007.0006", "Msg": "Data not received for 2 consecutive expected intervals." }
+```
