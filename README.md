@@ -5,6 +5,7 @@ Web application can connect to the WS server at ws://demo.nrg4cast.org:8080.
 
 Messages consist of a JSON containing all the relevant event data:
 *	Name [string] – name of the event
+*	Timestamp[time] - in MySQL format
 *	Type [num] – 0 – notice, 1 – warning, 2 – alarm
 *	ConsumptionCentreId [string] – id of consumption centre
 *	Msg[string] - message
@@ -55,5 +56,5 @@ function reconnect() {
 
 client.js can be used for pushing events to the event bus via http requests. HTTP server is running at 8081 at demo2.nrg4cast.org. Example of usage:
 ```
-http://demo2.nrg4cast.org:8081?event={"Name":"Missing data", "Type": 1, "ConsumptionCentreId": "Miren-lamp-0025.0007.0006", "Msg": "Data not received for 2 consecutive expected intervals." }
+http://demo2.nrg4cast.org:8081?event={"Name":"Missing data", "Timestamp": "2014-07-23 12:34:56", "Type": 1, "ConsumptionCentreId": "Miren-lamp-0025.0007.0006", "Msg": "Data not received for 2 consecutive expected intervals." }
 ```
