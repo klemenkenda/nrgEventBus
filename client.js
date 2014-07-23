@@ -1,7 +1,15 @@
 // Using: http://einaros.github.io/ws/
 
+// configuration
 var host = 'ws://127.0.0.1:8080';
+var port = 8081;
+var server = '127.0.0.1';
 
+// includes
+var http = require('http');
+var url = require('url');
+
+// initial connection to websockets
 var WebSocket = require('ws');
 var ws;
 
@@ -11,9 +19,7 @@ try {
     console.log("Error: %s", e.message);
 }
 
-var http = require('http');
-var url = require('url');
-
+// catching undefined exceptions
 process.on('uncaughtException', function(err) {
     if (err.code == 'ECONNREFUSED') {
         console.log("Connection refused")
@@ -22,8 +28,11 @@ process.on('uncaughtException', function(err) {
     }
 });
 
+// HTTP server
 http.createServer(function (req, res) {
-	var queryData = url.parse(req.url, true).query;	
+    // parse the query
+    var queryData = url.parse(req.url, true).query;
+    // if event was sent ...
 	if (typeof queryData.event != 'undefined') {
 	    console.log(queryData.event);	
 	    try {
@@ -45,7 +54,7 @@ http.createServer(function (req, res) {
     // respond in HTML with the echo
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(queryData.event);
-}).listen(1337, '127.0.0.1');
+}).listen(port, server);
 
 
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Server running at http://%s:%s', server, port);
