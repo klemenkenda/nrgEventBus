@@ -3,7 +3,7 @@
 // configuration
 var host = 'ws://127.0.0.1:8080';
 var port = 8081;
-var server = '127.0.0.1';
+var server = 'demo2.nrg4cast.org';
 
 // includes
 var http = require('http');
